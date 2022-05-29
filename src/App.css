@@ -39,6 +39,18 @@
 }
 
 /* custome codes */
-.header-img {
-  filter: brightness(0) saturate(100%) invert(76%) sepia(44%) saturate(1677%) hue-rotate(2deg) brightness(103%) contrast(102%);
+.header-img:hover {
+  /* filter: brightness(0) saturate(100%) invert(76%) sepia(44%) saturate(1677%) hue-rotate(2deg) brightness(103%) contrast(102%);
+   */
+
+  filter: invert(40%) sepia(64%) saturate(6805%) hue-rotate(212deg) brightness(104%) contrast(103%);
+}
+
+.nav-link {
+  border-radius: 7px;
+}
+
+header .nav-link:hover {
+  background-color: rgba(13, 110, 253, 1);
+  color: rgba(255, 255, 255, 1) !important;
 }
