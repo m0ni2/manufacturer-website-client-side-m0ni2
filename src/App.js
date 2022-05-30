@@ -9,6 +9,8 @@ import Footer from './Pages/Shared/Footer';
 import PrivacyPolicy from './Pages/Shared/PrivacyPolicy';
 import TermsOfService from './Pages/Shared/TermsOfService';
 import Register from './Pages/Authentication/Register';
+import RequireAuth from './Pages/Authentication/RequireAuth';
+import Purchase from './Pages/Purchase/Purchase';
 
 
 function App() {
@@ -22,6 +24,14 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
         <Route path='/terms' element={<TermsOfService />} />
+        <Route
+          path="/purchase/:id"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        />
       </Routes>
       <Footer />
     </div>

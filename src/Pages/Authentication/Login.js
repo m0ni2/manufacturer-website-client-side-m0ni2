@@ -1,7 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    let errorMessage;
+
+    const [
+        signInWithEmailAndPassword,
+        userSgInWthEmPs,
+        loadingSgInWthEmPs,
+        errorSgInWthEmPs,
+    ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, userGg, loadingGg, errorGg] = useSignInWithGoogle(auth);
+
+
+    if (errorSgInWthEmPs || errorGg) {
+        errorMessage = errorSgInWthEmPs?.message || errorGg?.message
+    }
+    if (loadingSgInWthEmPs || loadingGg) {
+        return <Loading />
+    }
+    if (userSgInWthEmPs || userGg) {
+        navigate(from, { replace: true });
+    }
+
+
     const handleLogin = (event) => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -37,7 +65,7 @@ const Login = () => {
                             </div>
                         </form>
                         <div className="divider">OR</div>
-                        <button className="btn btn-primary text-white">Login With Google</button>
+                        <button onClick={() => signInWithGoogle()} className="btn btn-primary text-white">Login With Google</button>
                     </div>
                 </div>
             </div>
