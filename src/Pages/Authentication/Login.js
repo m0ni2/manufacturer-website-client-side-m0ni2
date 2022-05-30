@@ -60,6 +60,7 @@ const Login = () => {
                                     <Link to='/register' className="px-0 mx-1 link link-hover"> Register</Link>
                                 </label>
                             </div>
+                            <p>{errorMessage}</p>
                             <div className="form-control mt-6">
                                 <input type='submit' className="btn btn-primary text-white" value='Login' />
                             </div>

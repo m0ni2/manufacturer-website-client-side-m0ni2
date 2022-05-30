@@ -12,7 +12,7 @@ const Purchase = () => {
     useEffect(() => {
         const getProduct = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/product/${id}`);
+                const { data } = await axios.get(`https://mrtools.herokuapp.com/product/${id}`);
                 setProduct(data);
             }
             catch (err) {
@@ -36,7 +36,7 @@ const Purchase = () => {
             phone: event.target.phone.value,
             quantity: event.target.quantity.value,
         }
-        const { data } = await axios.post('http://localhost:5000/order', order);
+        const { data } = await axios.post('https://mrtools.herokuapp.com/order', order);
         console.log(data);
     };
 
