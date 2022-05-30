@@ -17,9 +17,12 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
         {user ?
-            <li>
-                <button onClick={() => signOut(auth)}>Logout</button>
-            </li>
+            <>
+                <li>
+                    <button onClick={() => signOut(auth)}>Logout</button>
+                </li>
+                <li className='justify-center items-center ml-5'>{user.displayName}</li>
+            </>
             :
             <>
                 <li><Link to='/login'>Login</Link></li>

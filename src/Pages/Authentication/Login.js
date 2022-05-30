@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
@@ -16,16 +16,17 @@ const Login = () => {
         loadingSgInWthEmPs,
         errorSgInWthEmPs,
     ] = useSignInWithEmailAndPassword(auth);
+
     const [signInWithGoogle, userGg, loadingGg, errorGg] = useSignInWithGoogle(auth);
+    const [user, loading, error] = useAuthState(auth);
 
-
-    if (errorSgInWthEmPs || errorGg) {
+    if (error || errorSgInWthEmPs || errorGg) {
         errorMessage = errorSgInWthEmPs?.message || errorGg?.message
     }
-    if (loadingSgInWthEmPs || loadingGg) {
+    if (loading || loadingSgInWthEmPs || loadingGg) {
         return <Loading />
     }
-    if (userSgInWthEmPs || userGg) {
+    if (user || userSgInWthEmPs || userGg) {
         navigate(from, { replace: true });
     }
 
@@ -34,8 +35,7 @@ const Login = () => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-
-        console.log(email, password)
+        signInWithEmailAndPassword(email, password)
     }
 
     return (
@@ -54,7 +54,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="Password" name='password' className="input input-bordered" required />
+                                <input type="password" placeholder="Password" name='password' className="input input-bordered" required />
                                 <label className="label block mt-5">
                                     Not Registered? Please
                                     <Link to='/register' className="px-0 mx-1 link link-hover"> Register</Link>

@@ -1,15 +1,43 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Register = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    let errorMessage;
 
-    const handleRegister = (event) => {
+    const [
+        createUserWithEmailAndPassword,
+        userCrtWthEmPs,
+        loadingCrtWthEmPs,
+        errorCrtWthEmPs,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [updateProfile, updating, errorUpdt] = useUpdateProfile(auth);
+    const [signInWithGoogle, userGg, loadingGg, errorGg] = useSignInWithGoogle(auth);
+
+    if (errorCrtWthEmPs || errorGg || errorUpdt) {
+        errorMessage = errorCrtWthEmPs?.message || errorGg?.message
+    }
+    if (loadingCrtWthEmPs || loadingGg || updating) {
+        return <Loading />
+    }
+    if (userCrtWthEmPs || userGg) {
+        navigate(from, { replace: true });
+    }
+
+    const handleRegister = async (event) => {
         event.preventDefault();
-        const name = event.target.name.value;
+        const displayName = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        console.log(name, email, password)
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName });
     }
 
     return (
@@ -34,7 +62,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="Password" name='password' className="input input-bordered" required />
+                                <input type="password" placeholder="Password" name='password' className="input input-bordered" required />
                                 <label className="label block mt-5">
                                     Already Registered? Please
                                     <Link to='/login' className="px-0 mx-1 link link-hover"> Login</Link>
@@ -45,7 +73,7 @@ const Register = () => {
                             </div>
                         </form>
                         <div className="divider">OR</div>
-                        <button className="btn btn-primary text-white">Login With Google</button>
+                        <button onClick={() => signInWithGoogle()} className="btn btn-primary text-white">Login With Google</button>
                     </div>
                 </div>
             </div>
