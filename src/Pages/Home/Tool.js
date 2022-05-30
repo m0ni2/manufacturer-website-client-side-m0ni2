@@ -4,7 +4,7 @@ const Tool = ({ product }) => {
     const { _id, name, description, price, minOrderQuantity, availableQuantity, supplierName, img } = product;
     return (
 
-        <div class="card bg-base-100 shadow-2xl">
+        <div className="card bg-base-100 shadow-2xl">
             <figure><img src={img} alt={name} /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
