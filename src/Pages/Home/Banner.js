@@ -3,7 +3,7 @@ import heroImg from '../../assets/images/focused-carpenter-sawing-wood-board.jpg
 
 const Banner = () => {
     return (
-        <div className="hero min-h-screen container mx-auto">
+        <section className="hero min-h-screen container mx-auto">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src={heroImg} className="max-w-sm rounded-lg shadow-2xl " />
                 <div>
@@ -12,7 +12,7 @@ const Banner = () => {
                     <button className="btn btn-primary text-white">Get Started</button>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

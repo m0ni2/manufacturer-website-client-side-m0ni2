@@ -13,7 +13,7 @@ const Tool = ({ product }) => {
                 <p>Min.Order Quantity: {minOrderQuantity}</p>
                 <p>Available Quantity: {availableQuantity}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">Purchase</button>
                 </div>
             </div>
         </div>

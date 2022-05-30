@@ -1,15 +1,17 @@
 import React from 'react';
 import Banner from './Banner';
+import Reviews from './Reviews';
 import Summary from './Summary';
 import Tools from './Tools';
 
 const Home = () => {
     return (
-        <div>
+        <main>
             <Banner />
             <Tools />
             <Summary />
-        </div>
+            <Reviews />
+        </main>
     );
 };
 
