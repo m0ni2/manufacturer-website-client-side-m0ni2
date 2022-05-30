@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
-    const handleLogin = (event) => {
+const Register = () => {
+
+    const handleRegister = (event) => {
         event.preventDefault();
+        const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        console.log(email, password)
+        console.log(name, email, password)
     }
 
     return (
@@ -15,7 +17,13 @@ const Login = () => {
             <div className="flex-col">
                 <div className="card mx-auto flex-shrink-0 w-full max-w-sm lg:max-w-lg shadow-2xl bg-base-100">
                     <div className="card-body">
-                        <form onSubmit={handleLogin}>
+                        <form onSubmit={handleRegister}>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" placeholder="Name" name='name' className="input input-bordered" required />
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -28,12 +36,12 @@ const Login = () => {
                                 </label>
                                 <input type="text" placeholder="Password" name='password' className="input input-bordered" required />
                                 <label className="label block mt-5">
-                                    Not Registered? Please
-                                    <Link to='/register' className="px-0 mx-1 link link-hover"> Register</Link>
+                                    Already Registered? Please
+                                    <Link to='/login' className="px-0 mx-1 link link-hover"> Login</Link>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input type='submit' className="btn btn-primary text-white" value='Login' />
+                                <input type='submit' className="btn btn-primary text-white" value='Register' />
                             </div>
                         </form>
                         <div className="divider">OR</div>
@@ -45,4 +53,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

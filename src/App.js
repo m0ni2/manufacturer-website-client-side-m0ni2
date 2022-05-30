@@ -8,6 +8,7 @@ import Login from './Pages/Authentication/Login';
 import Footer from './Pages/Shared/Footer';
 import PrivacyPolicy from './Pages/Shared/PrivacyPolicy';
 import TermsOfService from './Pages/Shared/TermsOfService';
+import Register from './Pages/Authentication/Register';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/privacy' element={<PrivacyPolicy />} />
         <Route path='/terms' element={<TermsOfService />} />
       </Routes>

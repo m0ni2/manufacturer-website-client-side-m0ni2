@@ -2,7 +2,7 @@ import React from 'react';
 
 const TermsOfService = () => {
     return (
-        <div className='container mt-5 mx-auto mx-12'>
+        <div className='container mt-5 mx-auto'>
             <h2 className='text-center mb-4'>Terms Of Service</h2>
             <p>
                 1.1       Welcome to  MrTools. MrTools Limited ( MrTools) provides access to the  MrTools website or the mobile application/app or any other media ("Website") to you subject to the terms and conditions (“Terms”) set out on this page. By using the Website, you, a registered or guest user in terms of the eligibility criteria set out herein (“User”) agree to be bound by the Terms. Please read them carefully as your continued usage of the Website, you signify your agreement to be bound by these Terms. If you do not want to be bound by the Terms, you must not subscribe to or use the Website or our services.
