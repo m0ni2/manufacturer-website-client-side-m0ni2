@@ -8,7 +8,7 @@ import Login from './Pages/Authentication/Login';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
