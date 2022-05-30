@@ -18,6 +18,8 @@ const Navbar = () => {
         <li><Link to='/about'>About</Link></li>
         {user ?
             <>
+
+                <li><Link to='/addReview'>Add Review</Link></li>
                 <li>
                     <button onClick={() => signOut(auth)}>Logout</button>
                 </li>
