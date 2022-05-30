@@ -27,6 +27,7 @@ const Login = () => {
                     <a href="#item4" className="btn btn-xs">4</a>
                 </div>
             </div>
+            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
         </div>
     );
 };
