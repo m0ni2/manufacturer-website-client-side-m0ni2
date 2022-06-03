@@ -15,6 +15,8 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import AddAReview from './Pages/Dashboard/AddAReview';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
+import NotFound from './Pages/Shared/NotFound';
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
         <Route path='privacy' element={<PrivacyPolicy />} />
         <Route path='blogs' element={<Blogs />} />
         <Route path='terms' element={<TermsOfService />} />
+        <Route path='my-portfolio' element={<MyPortfolio />} />
 
         <Route
           path="purchase/:id"
@@ -47,11 +50,12 @@ function App() {
             </RequireAuth>
           }>
           <Route index element={<TermsOfService />} />
-          <Route path='addAReview' element={<AddAReview />} />
-          <Route path='myOrders' element={<MyOrders />} />
-          <Route path='myProfile' element={<MyProfile />} />
+          <Route path='add-review' element={<AddAReview />} />
+          <Route path='my-orders' element={<MyOrders />} />
+          <Route path='my-profile' element={<MyProfile />} />
         </Route>
 
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

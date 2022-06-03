@@ -17,7 +17,6 @@ const AddAReview = () => {
             rating: parseInt(event.target.rating.value),
         }
         const { data } = await axios.post('http://localhost:5000/reviews', review);
-        console.log(data);
     };
 
     return (

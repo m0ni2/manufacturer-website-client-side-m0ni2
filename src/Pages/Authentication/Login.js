@@ -26,6 +26,7 @@ const Login = () => {
     if (loading || loadingSgInWthEmPs || loadingGg) {
         return <Loading />
     }
+
     if (user || userSgInWthEmPs || userGg) {
         navigate(from, { replace: true });
     }
