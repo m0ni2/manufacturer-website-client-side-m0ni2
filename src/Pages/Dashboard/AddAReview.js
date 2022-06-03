@@ -16,7 +16,7 @@ const AddAReview = () => {
             description: event.target.review.value,
             rating: parseInt(event.target.rating.value),
         }
-        const { data } = await axios.post('http://localhost:5000/reviews', review);
+        const { data } = await axios.post('https://mrtools.herokuapp.com/reviews', review);
     };
 
     return (

@@ -1,45 +1,74 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const MyOrders = () => {
+    const [user, loading, error] = useAuthState(auth);
+
+
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        const getOrders = async () => {
+            const { data } = await axios.get(`https://mrtools.herokuapp.com/order/${user.email}`);
+            setOrders(data);
+        }
+        getOrders();
+    }, [user])
+
+    if (loading) {
+        return <Loading />
+    }
+
+    const handleCancel = async (id) => {
+        const { data } = await axios.delete(`https://mrtools.herokuapp.com/order/${id}`);
+    }
+    const handlePayment = (id) => {
+
+    }
+
     return (
         <div className='container mx-auto py-12'>
             <h2 className='text-center text-4xl font-bold mb-8'>My Orders</h2>
-            <div class="overflow-x-auto w-full">
-                <table class="table w-full">
+            <div className="overflow-x-auto w-full">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
+                            <th colSpan='4'>Name</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="flex items-center space-x-3">
-                                    <div class="avatar">
-                                        <div class="mask mask-squircle w-12 h-12">
-                                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                        {
+                            orders.map((order, index) => <tr
+                                key={index}
+
+                            >
+                                <td>
+                                    <div className="flex items-center space-x-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img src={order.product.img} />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{order.product.name}</div>
+                                            <div className="text-sm opacity-590">{order.product.description}</div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <div class="font-bold">Hart Hagerty</div>
-                                        <div class="text-sm opacity-50">United States</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                Zemlak, Daniel and Leannon
-                                <br />
-                                <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                            </td>
-                            <td>Purple</td>
-                            <th>
-                                <button class="btn btn-ghost btn-xs">details</button>
-                            </th>
-                        </tr>
+                                </td>
+
+                                <th>
+                                    <button onClick={handlePayment} className="btn btn-ghost btn-xs">Payment</button>
+                                </th>
+                                <th>
+                                    <button onClick={() => handleCancel(order.product._id)} className="btn btn-ghost btn-xs">Cancel</button>
+                                </th>
+                            </tr>)}
+
                     </tbody>
 
 

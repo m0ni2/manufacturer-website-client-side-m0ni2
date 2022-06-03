@@ -17,6 +17,9 @@ import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import NotFound from './Pages/Shared/NotFound';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import DashboardInner from './Pages/Dashboard/DashboardInner';
 
 
 function App() {
@@ -48,7 +51,7 @@ function App() {
               <Dashboard />
             </RequireAuth>
           }>
-          <Route index element={<TermsOfService />} />
+          <Route index element={<DashboardInner />} />
           <Route path='add-review' element={<AddAReview />} />
           <Route path='my-orders' element={<MyOrders />} />
           <Route path='my-profile' element={<MyProfile />} />
@@ -57,6 +60,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

@@ -7,7 +7,7 @@ const Reviews = () => {
     useEffect(() => {
         const getReviews = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/reviews');
+                const { data } = await axios.get('https://mrtools.herokuapp.com/reviews');
                 setReviews(data);
             }
             catch (err) {

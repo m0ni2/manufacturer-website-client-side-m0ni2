@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const Purchase = () => {
     const { id } = useParams();
@@ -12,7 +13,7 @@ const Purchase = () => {
     useEffect(() => {
         const getProduct = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/product/${id}`);
+                const { data } = await axios.get(`https://mrtools.herokuapp.com/product/${id}`);
                 setProduct(data);
             }
             catch (err) {
@@ -29,15 +30,17 @@ const Purchase = () => {
     const handlePlaceOrder = async (event) => {
         event.preventDefault();
         const order = {
-            product_id: id,
+            product,
             name: user.displayName,
             email: user.email,
             address: event.target.address.value,
             phone: event.target.phone.value,
             quantity: event.target.quantity.value,
         }
-        const { data } = await axios.post('http://localhost:5000/order', order);
-        console.log(data);
+        const { data } = await axios.post('https://mrtools.herokuapp.com/order', order);
+
+        toast('Order Placed');
+        event.target.reset()
     };
 
     return (

@@ -6,7 +6,7 @@ const useProducts = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const { data } = await axios.get('http://localhost:5000/product');
+                const { data } = await axios.get('https://mrtools.herokuapp.com/product');
                 setProducts(data);
             }
             catch (err) {
