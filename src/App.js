@@ -29,6 +29,7 @@ function App() {
         <Route path='privacy' element={<PrivacyPolicy />} />
         <Route path='blogs' element={<Blogs />} />
         <Route path='terms' element={<TermsOfService />} />
+
         <Route
           path="purchase/:id"
           element={
@@ -37,6 +38,7 @@ function App() {
             </RequireAuth>
           }
         />
+
         <Route
           path="dashboard"
           element={
@@ -44,13 +46,12 @@ function App() {
               <Dashboard />
             </RequireAuth>
           }>
-
           <Route index element={<TermsOfService />} />
           <Route path='addAReview' element={<AddAReview />} />
           <Route path='myOrders' element={<MyOrders />} />
           <Route path='myProfile' element={<MyProfile />} />
-
         </Route>
+
       </Routes>
       <Footer />
     </div>

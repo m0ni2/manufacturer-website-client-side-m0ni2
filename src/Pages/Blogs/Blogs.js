@@ -3,6 +3,7 @@ import React from 'react';
 const Blogs = () => {
     return (
         <div className='container mx-auto py-12'>
+            <h2 className='text-center text-4xl font-bold mb-8'>Blogs</h2>
             <div className="card max-w-5xl bg-base-100 shadow-xl mx-auto mb-6">
                 <div className="card-body">
                     <h2 className="card-title">How will you improve the performance of a React Application?</h2>

@@ -2,8 +2,8 @@ import React from 'react';
 
 const MyOrders = () => {
     return (
-        <div>
-            <h2>This is my orders</h2>
+        <div className='container mx-auto py-12'>
+            <h2 className='text-center text-4xl font-bold mb-8'>My Orders</h2>
         </div>
     );
 };
