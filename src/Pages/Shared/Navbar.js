@@ -18,11 +18,11 @@ const Navbar = () => {
         {user ?
             <>
 
-                <li><Link to='/addReview'>Add Review</Link></li>
+                <li><Link to='/dashboard'>Dashboard</Link></li>
                 <li>
                     <button onClick={() => signOut(auth)}>Logout</button>
                 </li>
-                <li className='justify-center items-center ml-5'>{user.displayName}</li>
+                <li className='justify-center items-center ml-5'>{user?.displayName}</li>
             </>
             :
             <>
