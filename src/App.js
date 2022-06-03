@@ -21,11 +21,10 @@ import NotFound from './Pages/Shared/NotFound';
 
 function App() {
   return (
-    <div>
+    <div className='max-w-7xl px-5 mx-auto'>
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='about' element={<About />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='privacy' element={<PrivacyPolicy />} />

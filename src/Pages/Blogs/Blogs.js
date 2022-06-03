@@ -6,8 +6,8 @@ const Blogs = () => {
             <h2 className='text-center text-4xl font-bold mb-8'>Blogs</h2>
             <div className="card max-w-5xl bg-base-100 shadow-xl mx-auto mb-6">
                 <div className="card-body">
-                    <h2 className="card-title">How will you improve the performance of a React Application?</h2>
-                    <p>
+                    <h2 className="card-title">Q-1: How will you improve the performance of a React Application?</h2>
+                    <p><strong>Ans:</strong>
                         In React applications, we are guaranteed a very fast UI by default. However, as an application grows, developers may encounter some performance issues.These include:
                         <span className='block ml-2'>
                             -Keeping component state local where necessary
@@ -29,8 +29,8 @@ const Blogs = () => {
             </div>
             <div className="card max-w-5xl bg-base-100 shadow-xl mx-auto mb-6">
                 <div className="card-body">
-                    <h2 className="card-title">What are the different ways to manage a state in a React application?</h2>
-                    <p>
+                    <h2 className="card-title">Q-2: What are the different ways to manage a state in a React application?</h2>
+                    <p><strong>Ans:</strong>
                         When we talk about state in our applications, it’s important to be clear about what types of state actually matter.There are four main types of state you need to properly manage in your React apps:
                         <span className='block ml-2'>
                             -Local state
@@ -49,8 +49,8 @@ const Blogs = () => {
             </div>
             <div className="card max-w-5xl bg-base-100 shadow-xl mx-auto mb-6">
                 <div className="card-body">
-                    <h2 className="card-title">Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts?</h2>
-                    <p>
+                    <h2 className="card-title">Q-3: Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts?</h2>
+                    <p><strong>Ans:</strong>
                         We should never update the state directly, because:
                         <span className='block ml-2'>
                             -If we update it directly, calling the setState() afterward may just replace the update you made.
@@ -66,8 +66,8 @@ const Blogs = () => {
             </div>
             <div className="card max-w-5xl bg-base-100 shadow-xl mx-auto mb-6">
                 <div className="card-body">
-                    <h2 className="card-title">You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h2>
-                    <p>
+                    <h2 className="card-title">Q-4: You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h2>
+                    <p><strong>Ans:</strong>
                         In React applications, we are guaranteed a very fast UI by default. However, as an application grows, developers may encounter some performance issues.These include:
                         <span className='block'>
                             At first, we need to declare a state to store our search field value, we will use onChange method so that we can store the search value on every single letter type. After that we will run a filter function on the products array. We will have every single product in the loop. Then we will take only that product who has product.name.toLowercase().includes(search field value from the state and we will also convert the value to lower case) . We will keep those filtered products in a variable. Then we can call a map function and show the products in the UI. That's it!
@@ -78,8 +78,8 @@ const Blogs = () => {
             </div>
             <div className="card max-w-5xl bg-base-100 shadow-xl mx-auto mb-6">
                 <div className="card-body">
-                    <h2 className="card-title">What is a unit test? Why should write unit tests?</h2>
-                    <p>
+                    <h2 className="card-title">Q-5: What is a unit test? Why should write unit tests?</h2>
+                    <p><strong>Ans:</strong>
                         The main objective of unit testing is to ensure that each individual part is working well and as it is supposed to work. The entire system will only be able to work well if the individual parts are working well. Unit testing is performed by the software developers themselves. Sometimes, independent software testers also perform these tests.When we add more features to any software, we might need to make changes to the old design and code, and this can be expensive as well as risky. If we use the unit testing methodology, then this can save a lot of time and can make the whole process much faster and easier.
                     </p>
                 </div>
